@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // Using the images seen in the user's screenshot
 import img1 from '../assets/hero.png';
 import img2 from '../assets/hero_light.png';
-import img3 from '../assets/hero.png'; // Fallback to hero for now
+import img3 from '../assets/hero_3.jpg';
 
 const Hero = () => {
   return (
@@ -40,8 +40,8 @@ const Hero = () => {
       >
         <img 
           src={img3} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 scale-x-[-1] scale-110 object-[20%_center] brightness-95 contrast-105" 
-          alt="Geometric Terrarium Close-up" 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-105" 
+          alt="Stunning Terrarium Ecosystem" 
         />
         <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
       </motion.div>
