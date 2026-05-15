@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 // Using the images seen in the user's screenshot
 import img1 from '../assets/hero.png';
 import img2 from '../assets/hero_light.png';
-import img3 from '../assets/hero_3.jpg';
+import img3 from '../assets/hero_3.png';
 
 const Hero = () => {
   return (
