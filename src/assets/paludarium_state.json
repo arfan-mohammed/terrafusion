@@ -1,0 +1,53 @@
+{
+  "definitionVersion": "0.4.0",
+  "sheetsById": {
+    "PaludariumAssembly": {
+      "staticOverrides": {
+        "byObject": {}
+      },
+      "sequence": {
+        "type": "PositionalSequence",
+        "length": 10,
+        "subUnitsPerSecond": 30,
+        "tracksByObject": {
+          "Soil": {
+            "trackData": {
+              "y": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "s1", "position": 0, "value": -300, "connectedRight": true, "handles": [0.5, 1, 0.5, 0] },
+                  { "id": "s2", "position": 1, "value": 0, "connectedRight": true, "handles": [0.5, 1, 0.5, 0] }
+                ]
+              },
+              "opacity": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "so1", "position": 0, "value": 0, "connectedRight": true, "handles": [0.5, 1, 0.5, 0] },
+                  { "id": "so2", "position": 0.2, "value": 1, "connectedRight": true, "handles": [0.5, 1, 0.5, 0] }
+                ]
+              }
+            }
+          },
+          "Rock1": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r1y1", "position": 1, "value": -400 }, { "id": "r1y2", "position": 2, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r1r1", "position": 1, "value": -45 }, { "id": "r1r2", "position": 2, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r1o1", "position": 1, "value": 0 }, { "id": "r1o2", "position": 1.2, "value": 1 }] } } },
+          "Rock2": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r2y1", "position": 1.2, "value": -400 }, { "id": "r2y2", "position": 2.2, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r2r1", "position": 1.2, "value": 60 }, { "id": "r2r2", "position": 2.2, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r2o1", "position": 1.2, "value": 0 }, { "id": "r2o2", "position": 1.4, "value": 1 }] } } },
+          "Rock3": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r3y1", "position": 1.4, "value": -400 }, { "id": "r3y2", "position": 2.4, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r3r1", "position": 1.4, "value": -30 }, { "id": "r3r2", "position": 2.4, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r3o1", "position": 1.4, "value": 0 }, { "id": "r3o2", "position": 1.6, "value": 1 }] } } },
+          "Rock4": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r4y1", "position": 1.6, "value": -400 }, { "id": "r4y2", "position": 2.6, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r4r1", "position": 1.6, "value": 15 }, { "id": "r4r2", "position": 2.6, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r4o1", "position": 1.6, "value": 0 }, { "id": "r4o2", "position": 1.8, "value": 1 }] } } },
+          "Rock5": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r5y1", "position": 1.8, "value": -400 }, { "id": "r5y2", "position": 2.8, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r5r1", "position": 1.8, "value": -20 }, { "id": "r5r2", "position": 2.8, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r5o1", "position": 1.8, "value": 0 }, { "id": "r5o2", "position": 2.0, "value": 1 }] } } },
+          "Rock6": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r6y1", "position": 2.0, "value": -400 }, { "id": "r6y2", "position": 3.0, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r6r1", "position": 2.0, "value": 45 }, { "id": "r6r2", "position": 3.0, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r6o1", "position": 2.0, "value": 0 }, { "id": "r6o2", "position": 2.2, "value": 1 }] } } },
+          "Rock7": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r7y1", "position": 2.2, "value": -400 }, { "id": "r7y2", "position": 3.2, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r7r1", "position": 2.2, "value": -10 }, { "id": "r7r2", "position": 3.2, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "r7o1", "position": 2.2, "value": 0 }, { "id": "r7o2", "position": 2.4, "value": 1 }] } } },
+          "Wood1": { "trackData": { "x": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w1x1", "position": 4, "value": -500 }, { "id": "w1x2", "position": 5, "value": 0 }] }, "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w1y1", "position": 4, "value": -200 }, { "id": "w1y2", "position": 5, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w1r1", "position": 4, "value": -30 }, { "id": "w1r2", "position": 5, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w1o1", "position": 4, "value": 0 }, { "id": "w1o2", "position": 4.2, "value": 1 }] } } },
+          "Wood2": { "trackData": { "x": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w2x1", "position": 4.5, "value": 500 }, { "id": "w2x2", "position": 5.5, "value": 0 }] }, "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w2y1", "position": 4.5, "value": -100 }, { "id": "w2y2", "position": 5.5, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w2r1", "position": 4.5, "value": 20 }, { "id": "w2r2", "position": 5.5, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w2o1", "position": 4.5, "value": 0 }, { "id": "w2o2", "position": 4.7, "value": 1 }] } } },
+          "Wood3": { "trackData": { "y": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w3y1", "position": 5, "value": -300 }, { "id": "w3y2", "position": 6, "value": 0 }] }, "rotation": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w3r1", "position": 5, "value": 90 }, { "id": "w3r2", "position": 6, "value": 0 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "w3o1", "position": 5, "value": 0 }, { "id": "w3o2", "position": 5.2, "value": 1 }] } } },
+          "Plant1": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p1s1", "position": 6, "value": 0 }, { "id": "p1s2", "position": 7, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p1o1", "position": 6, "value": 0 }, { "id": "p1o2", "position": 6.5, "value": 1 }] } } },
+          "Plant2": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p2s1", "position": 6.2, "value": 0 }, { "id": "p2s2", "position": 7.2, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p2o1", "position": 6.2, "value": 0 }, { "id": "p2o2", "position": 6.7, "value": 1 }] } } },
+          "Plant3": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p3s1", "position": 6.4, "value": 0 }, { "id": "p3s2", "position": 7.4, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p3o1", "position": 6.4, "value": 0 }, { "id": "p3o2", "position": 6.9, "value": 1 }] } } },
+          "Plant4": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p4s1", "position": 6.6, "value": 0 }, { "id": "p4s2", "position": 7.6, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p4o1", "position": 6.6, "value": 0 }, { "id": "p4o2", "position": 7.1, "value": 1 }] } } },
+          "Plant5": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p5s1", "position": 6.8, "value": 0 }, { "id": "p5s2", "position": 7.8, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p5o1", "position": 6.8, "value": 0 }, { "id": "p5o2", "position": 7.3, "value": 1 }] } } },
+          "Plant6": { "trackData": { "scale": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p6s1", "position": 7.0, "value": 0 }, { "id": "p6s2", "position": 8.0, "value": 1 }] }, "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "p6o1", "position": 7.0, "value": 0 }, { "id": "p6o2", "position": 7.5, "value": 1 }] } } },
+          "Waterfall": { "trackData": { "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "wf1", "position": 8, "value": 0 }, { "id": "wf2", "position": 10, "value": 1 }] }, "scaleY": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "wfs1", "position": 8, "value": 0 }, { "id": "wfs2", "position": 9, "value": 1 }] } } },
+          "Mist": { "trackData": { "opacity": { "type": "BasicKeyframedTrack", "keyframes": [{ "id": "m1", "position": 8.5, "value": 0 }, { "id": "m2", "position": 10, "value": 0.8 }] } } }
+        }
+      }
+    }
+  }
+}

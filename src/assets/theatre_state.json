@@ -1,0 +1,75 @@
+{
+  "definitionVersion": "0.4.0",
+  "sheetsById": {
+    "HeroSheet": {
+      "staticOverrides": {
+        "byObject": {}
+      },
+      "sequence": {
+        "type": "PositionalSequence",
+        "length": 4,
+        "subUnitsPerSecond": 30,
+        "tracksByObject": {
+          "Tank": {
+            "trackData": {
+              "opacity": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "t1", "position": 0, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 },
+                  { "id": "t2", "position": 0.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              }
+            }
+          },
+          "Hardscape": {
+            "trackData": {
+              "scale": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "h1", "position": 0.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 0 },
+                  { "id": "h2", "position": 1.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              },
+              "opacity": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "ho1", "position": 0.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 0 },
+                  { "id": "ho2", "position": 1.0, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              }
+            }
+          },
+          "Plants": {
+            "trackData": {
+              "scale": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "p1", "position": 1.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 0 },
+                  { "id": "p2", "position": 2.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              },
+              "opacity": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "po1", "position": 1.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 0 },
+                  { "id": "po2", "position": 2.0, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              }
+            }
+          },
+          "Waterfall": {
+            "trackData": {
+              "opacity": {
+                "type": "BasicKeyframedTrack",
+                "keyframes": [
+                  { "id": "w1", "position": 2.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 0 },
+                  { "id": "w2", "position": 3.5, "connectedRight": true, "handles": [0.5, 1, 0.5, 0], "value": 1 }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

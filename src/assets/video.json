@@ -1,0 +1,25 @@
+{
+  "project": "TerraFusion Hero Build",
+  "steps": [
+    { "id": 1, "name": "Empty Tank", "duration": 1500, "transition": "fade" },
+    { "id": 2, "name": "Soil & Landscape", "duration": 1500, "transition": "fade" },
+    { "id": 3, "name": "Hardscape Structure", "duration": 1500, "transition": "fade" },
+    { "id": 4, "name": "Planting Lush Greenery", "duration": 1500, "transition": "fade" },
+    { "id": 5, "name": "Living Water Features", "duration": 1500, "transition": "fade" },
+    { "id": 6, "name": "Atmospheric Mist", "duration": -1, "transition": "loop" }
+  ],
+  "effects": {
+    "waterfall": {
+      "type": "svg-flow",
+      "speed": 1.2,
+      "density": 8,
+      "opacity": 0.3
+    },
+    "mist": {
+      "type": "css-blur",
+      "speed": 0.5,
+      "layers": 5,
+      "blur": "80px"
+    }
+  }
+}
