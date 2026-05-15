@@ -16,7 +16,7 @@ const Hero = () => {
         transition={{ duration: 1, ease: 'circOut' }}
         className="relative h-full border-r border-white/5 overflow-hidden group"
       >
-        <img src={img1} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Geometric Terrarium" />
+        <img src={img1} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-105" alt="Geometric Terrarium" />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
       </motion.div>
 
@@ -38,8 +38,12 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.4, ease: 'circOut' }}
         className="relative h-full overflow-hidden group"
       >
-        <img src={img3} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Geometric Terrarium" />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+        <img 
+          src={img3} 
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 scale-x-[-1] scale-110 object-[20%_center] brightness-95 contrast-105" 
+          alt="Geometric Terrarium Close-up" 
+        />
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors" />
       </motion.div>
 
       {/* Overlay Text - Original Style */}
