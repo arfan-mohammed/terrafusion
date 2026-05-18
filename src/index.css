@@ -178,6 +178,10 @@ ul {
   display: none;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .w-full {
   width: 100%;
 }
