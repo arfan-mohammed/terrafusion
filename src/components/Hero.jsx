@@ -97,6 +97,7 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [isRightHovered, rightHeroImages.length]);
 
+
   return (
     <section className="relative h-screen w-full bg-black overflow-hidden flex">
       {/* Panel 1 - Interactive Image Sequence */}
