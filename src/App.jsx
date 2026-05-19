@@ -6,10 +6,45 @@ import ProjectGrid from './components/ProjectGrid';
 import About from './components/About';
 import EmptyAquarium from './components/EmptyAquarium';
 import Contact from './components/Contact';
+import TerrariumPage from './components/TerrariumPage';
+import PaludariumPage from './components/PaludariumPage';
 
 function App() {
+  const [currentView, setCurrentView] = useState('home');
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', 'dark');
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#/terrarium') {
+        setCurrentView('terrarium');
+        window.scrollTo(0, 0);
+      } else if (hash === '#/paludarium') {
+        setCurrentView('paludarium');
+        window.scrollTo(0, 0);
+      } else {
+        setCurrentView('home');
+        // Handle scrolling to home section
+        const sectionId = hash.replace('#/', '');
+        if (sectionId && sectionId !== '/' && sectionId !== '#') {
+          setTimeout(() => {
+            const el = document.getElementById(sectionId);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 150);
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   useEffect(() => {
@@ -35,17 +70,27 @@ function App() {
 
   return (
     <main className="min-h-screen bg-black">
-      <Navbar />
-      <Hero />
-      <ProjectGrid />
-      <About />
-      <EmptyAquarium />
-      <Contact />
+      <Navbar currentView={currentView} />
+      
+      {currentView === 'home' && (
+        <>
+          <Hero />
+          <ProjectGrid />
+          <About />
+          <EmptyAquarium />
+          <Contact />
+        </>
+      )}
+
+      {currentView === 'terrarium' && <TerrariumPage />}
+      {currentView === 'paludarium' && <PaludariumPage />}
 
       <footer className="py-12 border-t border-white/5 bg-slate-950">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold tracking-tighter text-white">TERRA<span className="text-primary">FUSION</span></span>
+            <a href="#/" className="text-xl font-bold tracking-tighter text-white">
+              TERRA<span className="text-primary">FUSION</span>
+            </a>
           </div>
           <p className="text-dim text-sm">&copy; {new Date().getFullYear()} TerraFusion Ecosystems.</p>
         </div>

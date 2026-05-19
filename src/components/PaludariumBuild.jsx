@@ -3,12 +3,12 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 import { useState } from 'react';
 
 // Importing assets
-import step1 from '../assets/hero_step1_tank.png';
-import step2 from '../assets/hero_step2_soil.png';
-import step3 from '../assets/hero_step3_wood.png';
-import step4 from '../assets/hero_step4_stones.png';
-import step5 from '../assets/hero_step5_plants.png';
-import step6 from '../assets/hero_step6_mist.png';
+import step1 from '../assets/hero_light.png';
+import step2 from '../assets/hero_light-1.png';
+import step3 from '../assets/hero_light-2.png';
+import step4 from '../assets/hero_light-3.png';
+import step5 from '../assets/hero-4.png';
+import step6 from '../assets/hero-5.png';
 
 const steps = [
   { id: 1, img: step1, title: 'Step 1: The Glass Canvas' },
