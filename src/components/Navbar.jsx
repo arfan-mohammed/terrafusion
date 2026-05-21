@@ -18,15 +18,15 @@ const Navbar = ({ currentView }) => {
 
   const navLinks = [
     { name: 'Home', href: '#/' },
+    { name: 'About', href: '#/about' },
     {
-      name: 'Portfolio',
+      name: 'Products',
       href: '#/portfolio',
       dropdown: [
         { name: 'Terrariums', href: '#/terrarium' },
         { name: 'Paludariums', href: '#/paludarium' }
       ]
     },
-    { name: 'About', href: '#/about' },
     { name: 'Contact', href: '#/contact' },
   ];
 
@@ -52,10 +52,9 @@ const Navbar = ({ currentView }) => {
                   >
                     <a
                       href={link.href}
-                      className="text-sm font-medium text-white/90 hover:text-primary flex items-center gap-1 transition-colors py-1 cursor-pointer"
+                      className="text-sm font-medium text-white/90 hover:text-primary transition-colors py-1 cursor-pointer"
                     >
                       {link.name}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
                     </a>
 
                     <AnimatePresence>
@@ -151,7 +150,7 @@ const Navbar = ({ currentView }) => {
                           }}
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary/45" />
-                          View Main Portfolio
+                          View All Products
                         </a>
                       </div>
                     )}
