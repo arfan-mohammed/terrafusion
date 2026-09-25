@@ -72,10 +72,8 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#020B07] relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#08321e] relative overflow-x-hidden">
       <BotanicalAtmosphere />
-      <BioluminescentSmokeTrail />
-      <GlowCursor />
       <Navbar currentView={currentView} />
       
       {currentView === 'home' && (
@@ -91,7 +89,7 @@ function App() {
       {currentView === 'terrarium' && <TerrariumPage />}
       {currentView === 'paludarium' && <PaludariumPage />}
 
-      <footer className="py-12 border-t border-white/5 bg-[#020B07]">
+      <footer className="py-12 border-t border-white/10 bg-[#08321e]">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <a href="#/" className="text-xl font-bold tracking-tighter text-white">

@@ -1,24 +1,20 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Using the images seen in the user's screenshot
 import img1 from '../assets/hero.png';
 import img2 from '../assets/hero_light.png';
 import img3 from '../assets/hero_3.png';
 
-// New hero images for sequential swap
 import hero1 from '../assets/hero-1.png';
 import hero2 from '../assets/hero-2.png';
 import hero3 from '../assets/hero-3.png';
 import hero4 from '../assets/hero-4.png';
 import hero5 from '../assets/hero-5.png';
 
-// New hero light images for sequential swap
 import heroLight1 from '../assets/hero_light-1.png';
 import heroLight2 from '../assets/hero_light-2.png';
 import heroLight3 from '../assets/hero_light-3.png';
 
-// New hero right images for sequential swap
 import hero3_1 from '../assets/hero_3-1.png';
 import hero3_2 from '../assets/hero_3-2.png';
 import hero3_3 from '../assets/hero_3-3.png';
@@ -28,11 +24,9 @@ const Hero = () => {
   const [heroIndex, setHeroIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // States for center panel hover slideshow
   const [lightHeroIndex, setLightHeroIndex] = useState(0);
   const [isLightHovered, setIsLightHovered] = useState(false);
 
-  // States for right panel hover slideshow
   const [rightHeroIndex, setRightHeroIndex] = useState(0);
   const [isRightHovered, setIsRightHovered] = useState(false);
 
@@ -40,63 +34,44 @@ const Hero = () => {
   const lightHeroImages = useMemo(() => [img2, heroLight1, heroLight2, heroLight3], []);
   const rightHeroImages = useMemo(() => [img3, hero3_1, hero3_2, hero3_3, hero3_4], []);
 
-  // Slideshow logic on hover - 3 second interval
   useEffect(() => {
     let interval;
     if (isHovered) {
-      // Trigger first change immediately on hover so user sees it working
       setHeroIndex(1);
-
       interval = setInterval(() => {
-        setHeroIndex((prev) => {
-          const next = prev + 1;
-          return next % heroImages.length;
-        });
-      }, 3000); // 3 seconds per image
+        setHeroIndex((prev) => (prev + 1) % heroImages.length);
+      }, 3000);
     } else {
-      setHeroIndex(0); // Reset to original image
+      setHeroIndex(0);
     }
     return () => clearInterval(interval);
   }, [isHovered, heroImages.length]);
 
-  // Slideshow logic on hover for Panel 2 (Center Image) - 3 second interval
   useEffect(() => {
     let interval;
     if (isLightHovered) {
-      // Trigger first change immediately on hover so user sees it working
       setLightHeroIndex(1);
-
       interval = setInterval(() => {
-        setLightHeroIndex((prev) => {
-          const next = prev + 1;
-          return next % lightHeroImages.length;
-        });
-      }, 3000); // 3 seconds per image
+        setLightHeroIndex((prev) => (prev + 1) % lightHeroImages.length);
+      }, 3000);
     } else {
-      setLightHeroIndex(0); // Reset to original image
+      setLightHeroIndex(0);
     }
     return () => clearInterval(interval);
   }, [isLightHovered, lightHeroImages.length]);
 
-  // Slideshow logic on hover for Panel 3 (Right Image) - 3 second interval
   useEffect(() => {
     let interval;
     if (isRightHovered) {
-      // Trigger first change immediately on hover so user sees it working
       setRightHeroIndex(1);
-
       interval = setInterval(() => {
-        setRightHeroIndex((prev) => {
-          const next = prev + 1;
-          return next % rightHeroImages.length;
-        });
-      }, 3000); // 3 seconds per image
+        setRightHeroIndex((prev) => (prev + 1) % rightHeroImages.length);
+      }, 3000);
     } else {
-      setRightHeroIndex(0); // Reset to original image
+      setRightHeroIndex(0);
     }
     return () => clearInterval(interval);
   }, [isRightHovered, rightHeroImages.length]);
-
 
   return (
     <section className="relative h-screen w-full bg-transparent overflow-hidden flex">
@@ -107,7 +82,7 @@ const Hero = () => {
         transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative h-full border-r border-white/5 overflow-hidden group cursor-pointer z-20"
+        className="relative h-full border-r border-white/10 overflow-hidden group cursor-pointer z-20"
       >
         <AnimatePresence mode="popLayout">
           <motion.img
@@ -117,14 +92,13 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
             transition={{
-              duration: 1.2, // Smooth cinematic transition
+              duration: 1.2,
               ease: "easeOut"
             }}
             className="absolute inset-0 w-full h-full object-cover brightness-110 pointer-events-none"
             alt={`Geometric Terrarium Sequence ${heroIndex}`}
           />
         </AnimatePresence>
-
       </motion.div>
 
       {/* Panel 2 - Interactive Center Image Sequence */}
@@ -134,7 +108,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.2, ease: 'circOut' }}
         onMouseEnter={() => setIsLightHovered(true)}
         onMouseLeave={() => setIsLightHovered(false)}
-        className="relative h-full border-r border-white/5 overflow-hidden group cursor-pointer z-20"
+        className="relative h-full border-r border-white/10 overflow-hidden group cursor-pointer z-20"
       >
         <AnimatePresence mode="popLayout">
           <motion.img
@@ -144,14 +118,13 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
             transition={{
-              duration: 1.2, // Smooth cinematic transition
+              duration: 1.2,
               ease: "easeOut"
             }}
             className="absolute inset-0 w-full h-full object-cover brightness-110 pointer-events-none"
             alt={`Jar Terrarium Sequence ${lightHeroIndex}`}
           />
         </AnimatePresence>
-
       </motion.div>
 
       {/* Panel 3 - Interactive Right Image Sequence */}
@@ -171,23 +144,22 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             exit={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
             transition={{
-              duration: 1.2, // Smooth cinematic transition
+              duration: 1.2,
               ease: "easeOut"
             }}
             className="absolute inset-0 w-full h-full object-cover brightness-110 pointer-events-none"
             alt={`Stunning Terrarium Sequence ${rightHeroIndex}`}
           />
         </AnimatePresence>
-
       </motion.div>
 
       {/* Overlay Text - Always Visible and Fixed On Top */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none" style={{ pointerEvents: 'none' }}>
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none">
         <div className="text-center">
-          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference">
+          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference drop-shadow-2xl">
             TERRA<span className="text-primary">FUSION</span>
           </h1>
-          <p className="text-sm md:text-base text-white/70 uppercase tracking-[0.5em] mt-4">
+          <p className="text-sm md:text-base text-white/90 uppercase tracking-[0.5em] mt-4 drop-shadow-lg font-semibold">
             Living Design for Modern Spaces
           </p>
         </div>
@@ -197,4 +169,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

@@ -31,9 +31,9 @@ const Navbar = ({ currentView }) => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}>
       <div className="container">
-        <div className={`glass rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500 ${isScrolled ? 'shadow-lg bg-black/40 backdrop-blur-xl border-white/10' : 'bg-transparent border-transparent'}`}>
+        <div className={`glass rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500 ${isScrolled ? 'shadow-md bg-[#041b10]/40 backdrop-blur-xl border-white/15' : 'bg-transparent border-transparent'}`}>
           <a href="#/" className="flex items-center gap-2 cursor-pointer">
             <Leaf className="text-primary w-8 h-8 animate-pulse" />
             <span className="text-2xl font-bold tracking-tighter text-white">TERRA<span className="text-primary">FUSION</span></span>
@@ -64,7 +64,7 @@ const Navbar = ({ currentView }) => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.2, ease: 'easeOut' }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-44 glass rounded-xl p-1.5 shadow-2xl bg-black/90 border border-white/10 backdrop-blur-2xl z-50 flex flex-col gap-1"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-44 glass rounded-xl p-1.5 shadow-2xl bg-[#041b10]/85 border border-white/15 backdrop-blur-2xl z-50 flex flex-col gap-1"
                         >
                           {link.dropdown.map((sub) => (
                             <a

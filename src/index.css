@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  /* Premium Dark Tropical Forest Botanical Atmosphere (Terrarium / Paludarium Brand) */
-  --color-bg: #020B07;
-  --color-text: #f8fafc;
-  --color-text-dim: #94a3b8;
-  --color-card-bg: rgba(4, 20, 13, 0.55);
-  --color-glass-border: rgba(79, 175, 120, 0.12);
-  --color-section-alt: rgba(4, 20, 13, 0.6);
-  --color-input-bg: rgba(255, 255, 255, 0.04);
+  /* Premium Bright Sunlit Tropical Forest Atmosphere (TerraFusion Brand) */
+  --color-bg: #08321e;
+  --color-text: #ffffff;
+  --color-text-dim: #cbd5e1;
+  --color-card-bg: rgba(6, 28, 18, 0.45);
+  --color-glass-border: rgba(168, 230, 195, 0.18);
+  --color-section-alt: rgba(6, 28, 18, 0.35);
+  --color-input-bg: rgba(255, 255, 255, 0.08);
 
   --color-primary: #4FAF78;
-  --color-primary-dark: #063d23;
+  --color-primary-dark: #09472a;
   --color-secondary: #6FC7C2;
   --color-accent: #D87968;
   --color-mint: #A8E6C3;
 
-  --color-overlay-top: rgba(2, 11, 7, 0.85);
-  --color-overlay-mid: rgba(4, 20, 13, 0.5);
+  --color-overlay-top: rgba(8, 50, 30, 0.2);
+  --color-overlay-mid: rgba(6, 28, 18, 0.15);
 
   --glass-blur: blur(14px);
   --font-heading: 'Outfit', sans-serif;
@@ -26,7 +26,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Enforced Dark Mode */
+/* Enforced Bright Forest Styling */
 
 * {
   margin: 0;
@@ -34,12 +34,12 @@
   box-sizing: border-box;
 }
 
-body {
+body, html, #root {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease;
+  overflow-x: hidden;
 }
 
 h1,
