@@ -19,6 +19,7 @@ import hero3_1 from '../assets/hero_3-1.png';
 import hero3_2 from '../assets/hero_3-2.png';
 import hero3_3 from '../assets/hero_3-3.png';
 import hero3_4 from '../assets/hero_3-4.png';
+import ProximityMagnifiedText from './ProximityMagnifiedText';
 
 const Hero = () => {
   const [heroIndex, setHeroIndex] = useState(0);
@@ -153,15 +154,30 @@ const Hero = () => {
         </AnimatePresence>
       </motion.div>
 
-      {/* Overlay Text - Always Visible and Fixed On Top */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none">
-        <div className="text-center">
-          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference drop-shadow-2xl">
-            TERRA<span className="text-primary">FUSION</span>
-          </h1>
-          <p className="text-sm md:text-base text-white/90 uppercase tracking-[0.5em] mt-4 drop-shadow-lg font-semibold">
-            Living Design for Modern Spaces
-          </p>
+      {/* Overlay Text - Interactive Mouse Proximity Lens Title */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-auto">
+        <div className="text-center px-4">
+          <ProximityMagnifiedText
+            as="h1"
+            mode="chars"
+            radius={160}
+            maxScale={1.38}
+            className="text-6xl md:text-9xl font-bold tracking-tighter text-white mix-blend-difference drop-shadow-2xl font-display"
+          >
+            TERRAFUSION
+          </ProximityMagnifiedText>
+
+          <div className="mt-4">
+            <ProximityMagnifiedText
+              as="p"
+              mode="words"
+              radius={140}
+              maxScale={1.35}
+              className="text-sm md:text-base text-emerald-100 uppercase tracking-[0.4em] drop-shadow-lg font-semibold"
+            >
+              Living Design for Modern Spaces
+            </ProximityMagnifiedText>
+          </div>
         </div>
       </div>
     </section>

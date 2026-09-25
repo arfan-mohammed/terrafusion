@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Leaf, Menu, X, ChevronDown, Layers, Droplet, Compass } from 'lucide-react';
+import ProximityMagnifiedText from './ProximityMagnifiedText';
 
 const Navbar = ({ currentView }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,11 @@ const Navbar = ({ currentView }) => {
         <div className={`glass rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-500 ${isScrolled ? 'shadow-md bg-[#041b10]/40 backdrop-blur-xl border-white/15' : 'bg-transparent border-transparent'}`}>
           <a href="#/" className="flex items-center gap-2 cursor-pointer">
             <Leaf className="text-primary w-8 h-8 animate-pulse" />
-            <span className="text-2xl font-bold tracking-tighter text-white">TERRA<span className="text-primary">FUSION</span></span>
+            <span className="text-2xl font-bold tracking-tighter text-white">
+              <ProximityMagnifiedText mode="chars" radius={100} maxScale={1.35}>
+                TERRAFUSION
+              </ProximityMagnifiedText>
+            </span>
           </a>
 
           {/* Desktop Nav */}
@@ -54,7 +59,9 @@ const Navbar = ({ currentView }) => {
                       href={link.href}
                       className="text-sm font-medium text-white/90 hover:text-primary transition-colors py-1 cursor-pointer"
                     >
-                      {link.name}
+                      <ProximityMagnifiedText radius={90} maxScale={1.3}>
+                        {link.name}
+                      </ProximityMagnifiedText>
                     </a>
 
                     <AnimatePresence>
@@ -73,7 +80,9 @@ const Navbar = ({ currentView }) => {
                               onClick={() => setIsDropdownOpen(false)}
                               className="relative flex items-center justify-center py-2 px-3 rounded-lg hover:bg-white/5 transition-all text-xs font-semibold text-white/80 hover:text-primary text-center"
                             >
-                              {sub.name}
+                              <ProximityMagnifiedText radius={80} maxScale={1.3}>
+                                {sub.name}
+                              </ProximityMagnifiedText>
                             </a>
                           ))}
                         </motion.div>
@@ -89,12 +98,18 @@ const Navbar = ({ currentView }) => {
                   href={link.href}
                   className="text-sm font-medium text-white/90 hover:text-primary transition-colors"
                 >
-                  {link.name}
+                  <ProximityMagnifiedText radius={90} maxScale={1.3}>
+                    {link.name}
+                  </ProximityMagnifiedText>
                 </a>
               );
             })}
 
-            <a href="#/contact" className="btn btn-primary text-sm py-2">Get Started</a>
+            <a href="#/contact" className="btn btn-primary text-sm py-2">
+              <ProximityMagnifiedText radius={90} maxScale={1.25}>
+                Get Started
+              </ProximityMagnifiedText>
+            </a>
           </div>
 
           {/* Mobile Toggle */}

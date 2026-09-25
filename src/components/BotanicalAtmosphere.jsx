@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import frame00 from '../assets/frame00_entrance.jpg';
 import scene1 from '../assets/scene1_entrance_4k.jpg';
@@ -18,11 +18,11 @@ const scenes = [
 
 const BotanicalAtmosphere = () => {
   const canvasRef = useRef(null);
+  const imgRefs = useRef([]);
   const targetProgressRef = useRef(0);
   const smoothProgressRef = useRef(0);
-  const [progress, setProgress] = useState(0);
+  const waterfallOpacityRef = useRef(0);
 
-  // Smooth lerp physics loop for continuous video-scrub camera feeling
   useEffect(() => {
     let animId;
 
@@ -35,15 +35,51 @@ const BotanicalAtmosphere = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
+    const smoothstep = (x) => x * x * (3 - 2 * x);
+
+    // Direct DOM update animation loop (120 FPS hardware accelerated, zero React re-render hitching)
     const physicsLoop = () => {
       animId = requestAnimationFrame(physicsLoop);
 
-      // Lerp momentum smoothing factor (0.08 for responsive, fluid camera travel)
+      // Lerp momentum smoothing factor (0.09 for ultra-responsive, fluid camera travel)
       const diff = targetProgressRef.current - smoothProgressRef.current;
-      if (Math.abs(diff) > 0.00005) {
-        smoothProgressRef.current += diff * 0.08;
-        setProgress(smoothProgressRef.current);
+      if (Math.abs(diff) > 0.00001) {
+        smoothProgressRef.current += diff * 0.09;
       }
+
+      const progress = smoothProgressRef.current;
+      const totalScenes = scenes.length; // 6
+      const cameraPos = progress * (totalScenes - 1); // 0.0 to 5.0
+      const segment = Math.floor(cameraPos);
+      const localT = cameraPos - segment; // 0.0 to 1.0 within segment
+
+      // Update each image transform directly on DOM nodes
+      scenes.forEach((_, index) => {
+        const imgEl = imgRefs.current[index];
+        if (!imgEl) return;
+
+        let opacity = 0;
+        if (index === segment) {
+          opacity = 1 - smoothstep(localT);
+        } else if (index === segment + 1) {
+          opacity = smoothstep(localT);
+        } else {
+          opacity = 0;
+        }
+
+        const smoothOpacity = Math.max(0, Math.min(1, opacity));
+        const relProgress = cameraPos - index;
+        const scale = 1.05 + relProgress * 0.10;
+        const translateX = Math.sin(relProgress * Math.PI) * 1.0;
+        const translateY = -relProgress * 2.0;
+
+        imgEl.style.opacity = smoothOpacity.toFixed(4);
+        imgEl.style.transform = `scale(${scale.toFixed(4)}) translate3d(${translateX.toFixed(2)}%, ${translateY.toFixed(2)}%, 0)`;
+
+        if (index === 4) {
+          waterfallOpacityRef.current = smoothOpacity;
+        }
+      });
     };
 
     animId = requestAnimationFrame(physicsLoop);
@@ -54,44 +90,7 @@ const BotanicalAtmosphere = () => {
     };
   }, []);
 
-  // Compute camera position, scene blend opacity, and 3D parallax transform
-  const getSceneTransform = (index) => {
-    const totalScenes = scenes.length; // 6
-    const cameraPos = progress * (totalScenes - 1); // 0.0 to 5.0
-    const segment = Math.floor(cameraPos);
-    const localT = cameraPos - segment; // 0.0 to 1.0 within segment
-
-    const smoothstep = (x) => x * x * (3 - 2 * x);
-
-    let opacity = 0;
-    if (index === segment) {
-      opacity = 1 - smoothstep(localT);
-    } else if (index === segment + 1) {
-      opacity = smoothstep(localT);
-    } else {
-      opacity = 0;
-    }
-
-    const smoothOpacity = Math.max(0, Math.min(1, opacity));
-
-    // Continuous 3D perspective camera motion (scale forward + 3D sway/tilt)
-    const relProgress = cameraPos - index; // relative camera offset to this scene
-    const scale = 1.05 + relProgress * 0.10;
-    const translateX = Math.sin(relProgress * Math.PI) * 1.0;
-    const translateY = -relProgress * 2.0;
-
-    return {
-      opacity: smoothOpacity,
-      scale,
-      translateX,
-      translateY,
-    };
-  };
-
-  // Waterfall animation tied to Scene 4 (index 4)
-  const scene4State = getSceneTransform(4);
-  const waterfallOpacity = scene4State.opacity;
-
+  // Waterfall animation canvas loop
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -130,7 +129,8 @@ const BotanicalAtmosphere = () => {
 
       ctx.clearRect(0, 0, width, height);
 
-      if (waterfallOpacity > 0.04) {
+      const wfOpacity = waterfallOpacityRef.current;
+      if (wfOpacity > 0.04) {
         ctx.save();
         for (let p of waterfallParticles) {
           p.relY += p.speedY / (height * 0.7);
@@ -144,7 +144,7 @@ const BotanicalAtmosphere = () => {
 
           const grad = ctx.createLinearGradient(wfX, wfY, wfX, wfY + p.length);
           grad.addColorStop(0, 'rgba(111, 199, 194, 0)');
-          grad.addColorStop(0.5, `rgba(168, 230, 195, ${p.opacity * waterfallOpacity})`);
+          grad.addColorStop(0.5, `rgba(168, 230, 195, ${p.opacity * wfOpacity})`);
           grad.addColorStop(1, 'rgba(111, 199, 194, 0)');
 
           ctx.strokeStyle = grad;
@@ -159,8 +159,8 @@ const BotanicalAtmosphere = () => {
         const splashY = height * 0.62;
         const pulse = Math.sin(time * 2) * 12;
         const splashGrad = ctx.createRadialGradient(splashX, splashY, 0, splashX, splashY, 110 + pulse);
-        splashGrad.addColorStop(0, `rgba(168, 230, 195, ${0.30 * waterfallOpacity})`);
-        splashGrad.addColorStop(0.5, `rgba(111, 199, 194, ${0.12 * waterfallOpacity})`);
+        splashGrad.addColorStop(0, `rgba(168, 230, 195, ${0.30 * wfOpacity})`);
+        splashGrad.addColorStop(0.5, `rgba(111, 199, 194, ${0.12 * wfOpacity})`);
         splashGrad.addColorStop(1, 'rgba(8, 50, 30, 0)');
         ctx.fillStyle = splashGrad;
         ctx.beginPath();
@@ -176,7 +176,7 @@ const BotanicalAtmosphere = () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animId);
     };
-  }, [waterfallOpacity]);
+  }, []);
 
   return (
     <div
@@ -192,38 +192,35 @@ const BotanicalAtmosphere = () => {
         backgroundColor: '#08321e',
       }}
     >
-      {/* 100vw x 100vh Full Viewport Width & Height 4K Forest Trajectory - 0% CUTOFF / 100% COVERAGE */}
-      {scenes.map((scene, index) => {
-        const { opacity, scale, translateX, translateY } = getSceneTransform(index);
-        return (
-          <img
-            key={scene.id}
-            src={scene.src}
-            alt={`TerraFusion 4K Forest Camera Journey — ${scene.title}`}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              pointerEvents: 'none',
-              zIndex: 0,
-              opacity,
-              transform: `scale(${scale}) translate3d(${translateX}%, ${translateY}%, 0)`,
-              willChange: 'opacity, transform',
-              filter: 'brightness(1.02) contrast(1.05) saturate(1.08)',
-              imageRendering: 'high-quality',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden',
-              transition: 'opacity 0.3s ease-out',
-            }}
-          />
-        );
-      })}
+      {/* 100vw x 100vh 4K Forest Camera Trajectory - Direct DOM GPU Updates */}
+      {scenes.map((scene, index) => (
+        <img
+          key={scene.id}
+          ref={(el) => (imgRefs.current[index] = el)}
+          src={scene.src}
+          alt={`TerraFusion 4K Forest Camera Journey — ${scene.title}`}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            pointerEvents: 'none',
+            zIndex: 0,
+            opacity: index === 0 ? 1 : 0,
+            transform: 'scale(1.05) translate3d(0, 0, 0)',
+            willChange: 'opacity, transform',
+            filter: 'brightness(1.02) contrast(1.05) saturate(1.08)',
+            imageRendering: 'high-quality',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+          }}
+        />
+      ))}
 
-      {/* Waterfall Animation Canvas for Scene 4 */}
+      {/* Waterfall Animation Canvas */}
       <canvas
         ref={canvasRef}
         style={{

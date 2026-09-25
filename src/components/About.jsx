@@ -28,8 +28,12 @@ const About = () => {
             viewport={{ once: true }}
             className="flex-1 p-8 rounded-3xl bg-[#041a10]/60 backdrop-blur-xl border border-emerald-500/20 shadow-2xl"
           >
-            <h4 className="text-primary mb-4 uppercase tracking-widest font-semibold">Our Story</h4>
-            <h2 className="text-5xl mb-6 font-display font-bold text-white drop-shadow-md">Fusing Nature <br /> with Design.</h2>
+            <ProximityMagnifiedText as="h4" className="text-primary mb-4 uppercase tracking-widest font-semibold block">
+              Our Story
+            </ProximityMagnifiedText>
+            <ProximityMagnifiedText as="h2" mode="words" radius={150} maxScale={1.35} className="text-5xl mb-6 font-display font-bold text-white drop-shadow-md">
+              Fusing Nature with Design.
+            </ProximityMagnifiedText>
             
             <ProximityMagnifiedText className="text-emerald-100/90 text-lg mb-6 leading-relaxed">
               At TerraFusion, we believe that nature is the ultimate artist. Our mission is to encapsulate the raw beauty of tropical jungles and aquatic worlds into manageable, stunning displays for your modern living space.
@@ -41,13 +45,17 @@ const About = () => {
 
             <div className="grid grid-cols-2 gap-8 pt-4 border-t border-white/10">
               <div>
-                <h3 className="text-primary text-3xl font-bold mb-2">150+</h3>
+                <ProximityMagnifiedText as="h3" className="text-primary text-3xl font-bold mb-2 block">
+                  150+
+                </ProximityMagnifiedText>
                 <ProximityMagnifiedText as="p" className="text-sm uppercase tracking-wider text-emerald-200/80">
                   Custom Builds
                 </ProximityMagnifiedText>
               </div>
               <div>
-                <h3 className="text-secondary text-3xl font-bold mb-2">10+</h3>
+                <ProximityMagnifiedText as="h3" className="text-secondary text-3xl font-bold mb-2 block">
+                  10+
+                </ProximityMagnifiedText>
                 <ProximityMagnifiedText as="p" className="text-sm uppercase tracking-wider text-emerald-200/80">
                   Expert Designers
                 </ProximityMagnifiedText>

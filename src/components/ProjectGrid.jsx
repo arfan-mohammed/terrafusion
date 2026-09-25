@@ -35,8 +35,12 @@ const ProjectGrid = () => {
     <section id="portfolio" className="section bg-transparent">
       <div className="container">
         <div className="flex flex-col items-center mb-16 text-center">
-          <h4 className="text-primary mb-4 uppercase tracking-widest font-semibold">Our Expertise</h4>
-          <h2 className="text-5xl text-white font-display font-bold">Curated Ecosystems</h2>
+          <ProximityMagnifiedText as="h4" className="text-primary mb-4 uppercase tracking-widest font-semibold block">
+            Our Expertise
+          </ProximityMagnifiedText>
+          <ProximityMagnifiedText as="h2" mode="words" radius={150} maxScale={1.35} className="text-5xl text-white font-display font-bold">
+            Curated Ecosystems
+          </ProximityMagnifiedText>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -60,15 +64,20 @@ const ProjectGrid = () => {
               </div>
 
               <div className="p-8">
-                <span className="text-xs uppercase tracking-widest text-primary mb-2 block font-semibold">
+                <ProximityMagnifiedText as="span" className="text-xs uppercase tracking-widest text-primary mb-2 block font-semibold">
                   {project.category}
-                </span>
-                <h3 className="text-2xl mb-4 text-white font-semibold">{project.title}</h3>
+                </ProximityMagnifiedText>
+                <ProximityMagnifiedText as="h3" className="text-2xl mb-4 text-white font-semibold block">
+                  {project.title}
+                </ProximityMagnifiedText>
                 <ProximityMagnifiedText className="text-emerald-100/90 text-sm leading-relaxed">
                   {project.description}
                 </ProximityMagnifiedText>
                 <button className="mt-6 text-sm font-semibold flex items-center gap-2 text-white group-hover:text-primary transition-colors">
-                  View Project <div className="w-8 h-[1px] bg-primary transition-all opacity-30 group-hover:opacity-100"></div>
+                  <ProximityMagnifiedText radius={100} maxScale={1.3}>
+                    View Project
+                  </ProximityMagnifiedText>
+                  <div className="w-8 h-[1px] bg-primary transition-all opacity-30 group-hover:opacity-100"></div>
                 </button>
               </div>
             </motion.div>
