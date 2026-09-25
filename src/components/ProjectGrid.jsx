@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import aquariumImg from '../assets/hero.png';
 import heroImg from '../assets/hero.png';
 import paludariumImg from '../assets/hero_light.png';
+import LiquidDistortionImage from './LiquidDistortionImage';
 
 const projects = [
   {
@@ -48,12 +49,13 @@ const ProjectGrid = () => {
               className="glass-card rounded-3xl overflow-hidden group"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
+                <LiquidDistortionImage
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
 
               <div className="p-8">

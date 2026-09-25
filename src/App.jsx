@@ -8,6 +8,7 @@ import EmptyAquarium from './components/EmptyAquarium';
 import Contact from './components/Contact';
 import TerrariumPage from './components/TerrariumPage';
 import PaludariumPage from './components/PaludariumPage';
+import GlowCursor from './components/GlowCursor';
 
 function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -70,6 +71,7 @@ function App() {
 
   return (
     <main className="min-h-screen bg-black">
+      <GlowCursor />
       <Navbar currentView={currentView} />
       
       {currentView === 'home' && (
