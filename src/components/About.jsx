@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import heroImg from '../assets/hero.png';
 import LiquidDistortionImage from './LiquidDistortionImage';
+import ProximityMagnifiedText from './ProximityMagnifiedText';
 
 const About = () => {
   return (
@@ -25,25 +26,31 @@ const About = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1"
+            className="flex-1 p-8 rounded-3xl bg-[#041a10]/60 backdrop-blur-xl border border-emerald-500/20 shadow-2xl"
           >
             <h4 className="text-primary mb-4 uppercase tracking-widest font-semibold">Our Story</h4>
-            <h2 className="text-5xl mb-6">Fusing Nature <br /> with Design.</h2>
-            <p className="text-dim text-lg mb-6 leading-relaxed">
+            <h2 className="text-5xl mb-6 font-display font-bold text-white drop-shadow-md">Fusing Nature <br /> with Design.</h2>
+            
+            <ProximityMagnifiedText className="text-emerald-100/90 text-lg mb-6 leading-relaxed">
               At TerraFusion, we believe that nature is the ultimate artist. Our mission is to encapsulate the raw beauty of tropical jungles and aquatic worlds into manageable, stunning displays for your modern living space.
-            </p>
-            <p className="text-dim text-lg mb-8 leading-relaxed">
+            </ProximityMagnifiedText>
+            
+            <ProximityMagnifiedText className="text-emerald-100/90 text-lg mb-8 leading-relaxed">
               Founded by biological enthusiasts and designers, we bridge the gap between complex life sciences and high-end interior aesthetics. Each piece is a living, breathing ecosystem designed to thrive for years.
-            </p>
+            </ProximityMagnifiedText>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8 pt-4 border-t border-white/10">
               <div>
-                <h3 className="text-primary text-3xl mb-2">150+</h3>
-                <p className="text-sm uppercase tracking-wider">Custom Builds</p>
+                <h3 className="text-primary text-3xl font-bold mb-2">150+</h3>
+                <ProximityMagnifiedText as="p" className="text-sm uppercase tracking-wider text-emerald-200/80">
+                  Custom Builds
+                </ProximityMagnifiedText>
               </div>
               <div>
-                <h3 className="text-secondary text-3xl mb-2">10+</h3>
-                <p className="text-sm uppercase tracking-wider">Expert Designers</p>
+                <h3 className="text-secondary text-3xl font-bold mb-2">10+</h3>
+                <ProximityMagnifiedText as="p" className="text-sm uppercase tracking-wider text-emerald-200/80">
+                  Expert Designers
+                </ProximityMagnifiedText>
               </div>
             </div>
           </motion.div>

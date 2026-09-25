@@ -4,6 +4,7 @@ import aquariumImg from '../assets/hero.png';
 import heroImg from '../assets/hero.png';
 import paludariumImg from '../assets/hero_light.png';
 import LiquidDistortionImage from './LiquidDistortionImage';
+import ProximityMagnifiedText from './ProximityMagnifiedText';
 
 const projects = [
   {
@@ -35,7 +36,7 @@ const ProjectGrid = () => {
       <div className="container">
         <div className="flex flex-col items-center mb-16 text-center">
           <h4 className="text-primary mb-4 uppercase tracking-widest font-semibold">Our Expertise</h4>
-          <h2 className="text-5xl">Curated Ecosystems</h2>
+          <h2 className="text-5xl text-white font-display font-bold">Curated Ecosystems</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -46,7 +47,7 @@ const ProjectGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="glass-card rounded-3xl overflow-hidden group"
+              className="glass-card rounded-3xl overflow-hidden group bg-[#041a10]/70 backdrop-blur-xl border border-white/10"
             >
               <div className="relative h-64 overflow-hidden">
                 <LiquidDistortionImage
@@ -59,14 +60,14 @@ const ProjectGrid = () => {
               </div>
 
               <div className="p-8">
-                <span className="text-xs uppercase tracking-widest text-primary mb-2 block">
+                <span className="text-xs uppercase tracking-widest text-primary mb-2 block font-semibold">
                   {project.category}
                 </span>
-                <h3 className="text-2xl mb-4">{project.title}</h3>
-                <p className="text-dim text-sm leading-relaxed">
+                <h3 className="text-2xl mb-4 text-white font-semibold">{project.title}</h3>
+                <ProximityMagnifiedText className="text-emerald-100/90 text-sm leading-relaxed">
                   {project.description}
-                </p>
-                <button className="mt-6 text-sm font-semibold flex items-center gap-2 group-hover:text-primary transition-colors">
+                </ProximityMagnifiedText>
+                <button className="mt-6 text-sm font-semibold flex items-center gap-2 text-white group-hover:text-primary transition-colors">
                   View Project <div className="w-8 h-[1px] bg-primary transition-all opacity-30 group-hover:opacity-100"></div>
                 </button>
               </div>
