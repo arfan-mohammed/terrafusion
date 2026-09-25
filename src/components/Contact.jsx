@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="section bg-slate-950/50">
+    <section id="contact" className="section bg-transparent">
       <div className="container">
         <div className="flex flex-col md:flex-row gap-16">
           <div className="flex-1">

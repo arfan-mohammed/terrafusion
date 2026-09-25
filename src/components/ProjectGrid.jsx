@@ -31,7 +31,7 @@ const projects = [
 
 const ProjectGrid = () => {
   return (
-    <section id="portfolio" className="section bg-[#020617]">
+    <section id="portfolio" className="section bg-transparent">
       <div className="container">
         <div className="flex flex-col items-center mb-16 text-center">
           <h4 className="text-primary mb-4 uppercase tracking-widest font-semibold">Our Expertise</h4>

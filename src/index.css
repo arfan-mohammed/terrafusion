@@ -1,24 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  /* Default Dark Mode (per user request for the main vibe) */
-  --color-bg: #020617;
+  /* Premium Dark Tropical Forest Botanical Atmosphere (Terrarium / Paludarium Brand) */
+  --color-bg: #020B07;
   --color-text: #f8fafc;
   --color-text-dim: #94a3b8;
-  --color-card-bg: rgba(255, 255, 255, 0.02);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  --color-section-alt: rgba(2, 6, 23, 0.5);
-  --color-input-bg: rgba(255, 255, 255, 0.05);
+  --color-card-bg: rgba(4, 20, 13, 0.55);
+  --color-glass-border: rgba(79, 175, 120, 0.12);
+  --color-section-alt: rgba(4, 20, 13, 0.6);
+  --color-input-bg: rgba(255, 255, 255, 0.04);
 
-  --color-primary: #10b981;
-  --color-primary-dark: #064e3b;
-  --color-secondary: #a3e635;
-  --color-accent: #f59e0b;
+  --color-primary: #4FAF78;
+  --color-primary-dark: #063d23;
+  --color-secondary: #6FC7C2;
+  --color-accent: #D87968;
+  --color-mint: #A8E6C3;
 
-  --color-overlay-top: rgba(0, 0, 0, 0.7);
-  --color-overlay-mid: rgba(0, 0, 0, 0.4);
+  --color-overlay-top: rgba(2, 11, 7, 0.85);
+  --color-overlay-mid: rgba(4, 20, 13, 0.5);
 
-  --glass-blur: blur(12px);
+  --glass-blur: blur(14px);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 
@@ -61,23 +62,37 @@ ul {
 
 /* Glassmorphism */
 .glass {
-  background: var(--color-card-bg);
+  background: rgba(4, 20, 13, 0.65);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--color-glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .glass-card {
-  background: var(--color-card-bg);
-  backdrop-filter: blur(8px);
+  background: rgba(4, 20, 13, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--color-glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(16, 185, 129, 0.05);
+  background: rgba(79, 175, 120, 0.12);
   border-color: var(--color-primary);
   transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slowPan {
+  0% { transform: scale(1.03) translate(0px, 0px); }
+  50% { transform: scale(1.06) translate(-8px, -5px); }
+  100% { transform: scale(1.03) translate(0px, 0px); }
+}
+
+.animate-slow-pan {
+  animation: slowPan 30s ease-in-out infinite alternate;
 }
 
 /* Gradient Text */
@@ -619,7 +634,7 @@ ul {
 }
 
 .bg-slate-950 {
-  background-color: #020617;
+  background-color: #020B07;
 }
 
 .bg-primary\/20 {

@@ -9,6 +9,8 @@ import Contact from './components/Contact';
 import TerrariumPage from './components/TerrariumPage';
 import PaludariumPage from './components/PaludariumPage';
 import GlowCursor from './components/GlowCursor';
+import BioluminescentSmokeTrail from './components/BioluminescentSmokeTrail';
+import BotanicalAtmosphere from './components/BotanicalAtmosphere';
 
 function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -70,7 +72,9 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-[#020B07] relative overflow-x-hidden">
+      <BotanicalAtmosphere />
+      <BioluminescentSmokeTrail />
       <GlowCursor />
       <Navbar currentView={currentView} />
       
@@ -87,7 +91,7 @@ function App() {
       {currentView === 'terrarium' && <TerrariumPage />}
       {currentView === 'paludarium' && <PaludariumPage />}
 
-      <footer className="py-12 border-t border-white/5 bg-slate-950">
+      <footer className="py-12 border-t border-white/5 bg-[#020B07]">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <a href="#/" className="text-xl font-bold tracking-tighter text-white">

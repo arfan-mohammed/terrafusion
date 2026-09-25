@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function PaludariumPage() {
   return (
-    <div className="bg-[#020617] text-white h-screen w-full flex items-center justify-center selection:bg-primary selection:text-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-radial-gradient from-blue-950/20 to-black pointer-events-none" />
+    <div className="bg-[#020B07] text-white h-screen w-full flex items-center justify-center selection:bg-primary selection:text-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-radial-gradient from-blue-950/20 to-[#020B07] pointer-events-none" />
       <motion.h1
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}

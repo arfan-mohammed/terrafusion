@@ -99,7 +99,7 @@ const Hero = () => {
 
 
   return (
-    <section className="relative h-screen w-full bg-black overflow-hidden flex">
+    <section className="relative h-screen w-full bg-transparent overflow-hidden flex">
       {/* Panel 1 - Interactive Image Sequence */}
       <motion.div
         initial={{ width: '0%' }}
